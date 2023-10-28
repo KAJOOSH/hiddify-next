@@ -157,7 +157,7 @@ jobs:
           New-Item -ItemType Directory -Force -Name "tmp_out"
           $EXT_ARRAY = "${{ matrix.targets }}" -split ","
           foreach ($EXT in $EXT_ARRAY) {
-              # Find all files with this extension in the current directory, and copy them to "out" directory
+              # Find all files with this extension in the current directory, and copy them to "out" directory 
               Get-ChildItem -Recurse -File -Filter "*setup.$EXT" | Copy-Item -Destination "out" -ErrorAction SilentlyContinue
               move out\*setup.$EXT tmp_out\setup.$EXT
               Get-ChildItem -Recurse -File -Filter "*.$EXT"
